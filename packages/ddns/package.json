@@ -1,0 +1,22 @@
+{
+	"name": "@my-trade/ddns",
+	"version": "0.1.4",
+	"description": "",
+	"bin": {
+		"namecheap-dddns": "./src/index.js"
+	},
+	"scripts": {
+		"docker-build": "docker build -t my-trade/ddns --no-cache .",
+		"docker-clean": "docker rmi my-trade/ddns",
+		"docker-stop": "docker rm $(docker stop $(docker ps -a -q --filter ancestor=my-trade/ddns --format=\"{{.ID}}\"))",
+		"docker-push": "docker push my-trade/ddns",
+		"start": "node src/index.js"
+	},
+	"dependencies": {
+		"cross-fetch": "^3.0.2",
+		"yargs": "^13.2.2"
+	},
+	"author": "Bruno Basto",
+	"license": "MIT",
+	"gitHead": "91f59dfd8317d2c3dbc33b17e9ef9ad478c8f63d"
+}

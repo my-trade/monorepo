@@ -1,0 +1,22 @@
+{
+    "author": "Bruno Basto",
+    "name": "@my-trade/stocks",
+    "version": "0.3.6",
+    "main": "src/index.js",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+        "cross-fetch": "^3.0.4"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "build": "webpack --config webpack.web.config.js && webpack --config webpack.server.config.js",
+        "dev": "npm run build && npm start",
+        "docker-build": "docker build -t my-trade/webapp --no-cache .",
+        "docker-clean": "docker rmi my-trade/webapp",
+        "docker-stop": "docker rm $(docker stop $(docker ps -a -q --filter ancestor=my-trade/webapp --format=\"{{.ID}}\"))",
+        "docker-push": "docker push my-trade/webapp",
+        "start": "node build/server/bundle.js"
+    },
+    "gitHead": "36f7691f05580fe137c124f56c13fd348c958623"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@my-trade/api",
+  "version": "0.3.8",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "docker-stop": "docker rm $(docker stop $(docker ps -a -q --filter ancestor=my-trade/api --format=\"{{.ID}}\"))",
+    "docker-clean": "docker rmi my-trade/api",
+    "docker-build": "docker build -t my-trade/api --no-cache .",
+    "docker-push": "docker push my-trade/api",
+    "start": "node src/index.js"
+  },
+  "author": "Bruno Basto",
+  "license": "ISC",
+  "dependencies": {
+    "@my-trade/db": "^0.3.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "cross-fetch": "^3.0.1",
+    "express": "^4.16.4",
+    "google-auth-library": "^3.1.0",
+    "googleapis": "^38.0.0"
+  },
+  "gitHead": "91f59dfd8317d2c3dbc33b17e9ef9ad478c8f63d"
+}

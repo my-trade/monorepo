@@ -1,0 +1,26 @@
+- Redux
+	- Sign in
+		- Receive user email after successful sign in
+		- Show global application loading while signing in or out @done
+	- User
+		- Retrieve from local storage if cached email matches auth email
+	- Accounts
+		- Retrieve from local storage if cached email matches accounts user email
+	- Account Types
+		- Implement account types reducer, actions and connections @done
+		- Implement connection action for account connection cards
+			- These cards have a few states:
+				- 1. When user is not connected to it, show a big logo and the "Connect" button @done
+				- 2. When user clicks "Connect" show the form to connect @done
+				- 3. When user confirms connection with form filled out, show loading @done
+				- 4. When loading finishes, show faded logo with a "Disconnect" button
+				- 5. When loading finishes, screen will naturally repaint to show dashboard instead
+				- 6. User can still access connection card by goiing to "Manage Connections" somewhere
+			- Form should be rendered using react-jsonschema-form
+
+			- After an account is created, a websocket should open to wait for its results
+
+			- There should be a dropdown where users can update the credentials of an already connected account
+
+		- When conncecting, show the loading indicator
+			- I need to port requestAddAccount to the Saga pattern @done

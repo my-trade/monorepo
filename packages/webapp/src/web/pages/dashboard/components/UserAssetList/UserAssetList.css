@@ -1,0 +1,35 @@
+.stock-qtd {
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+}
+
+.stock-value {
+    position: absolute;
+    top: 14px;
+    right: 5px;
+}
+
+.stock-rentability {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+}
+
+.asset-list .badge-item, .asset-list .label-item {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.asset-list .card-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.asset-list .card-body {
+    padding-bottom: 3rem;
+}
+
+.asset-list .column-value {
+    text-align: right;
+}

@@ -1,0 +1,15 @@
+{
+	"name": "@my-trade/db",
+	"version": "1.0.24",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node src/index.js"
+	},
+	"author": "Bruno Basto",
+	"license": "ISC",
+	"dependencies": {
+		"mongodb": "^3.1.13"
+	},
+	"gitHead": "3e6ee374d7a3b60d889d6dd86798720515e6d98d"
+}

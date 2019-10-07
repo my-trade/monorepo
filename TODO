@@ -1,0 +1,12 @@
+1 - Pegar ações a partir das transações para que tenhamos informações de preço que foi comprado cada uma e podermos
+    calcular rentabilidade
+    OK
+
+2 - Fazer um map sempre que for listar ações para pegar o preço mais atual de cada uma
+    OK
+
+3 - Coletar dividendos e incluir numa tabela de earnings
+
+4 - Mostrar earnings ao listar ações
+
+

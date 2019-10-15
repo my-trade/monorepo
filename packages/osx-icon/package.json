@@ -3,7 +3,7 @@
 	"name": "links-bag",
 	"appId": "org.liferay.labs.br.linksbag",
 	"productName": "LinksBag",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"main": "main.js",
 	"scripts": {
 		"prod": "webpack --mode production --config webpack.build.config.js && electron --noDevServer .",

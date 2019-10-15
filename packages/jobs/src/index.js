@@ -32,7 +32,7 @@ const DAY = 24 * 60 * MINUTE;
                 while (true) {
                     await alertsJob(client);
 
-                    await wait(MINUTE);
+                    await wait(15 * MINUTE);
                 }
             })
         ])

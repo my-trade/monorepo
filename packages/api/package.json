@@ -1,6 +1,6 @@
 {
   "name": "@my-trade/api",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Bruno Basto",
   "license": "ISC",
   "dependencies": {
-    "@my-trade/db": "^1.0.21",
+    "@my-trade/db": "^1.0.22",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "cross-fetch": "^3.0.1",

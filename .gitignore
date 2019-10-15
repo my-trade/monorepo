@@ -3,3 +3,4 @@ build/
 .env
 env.json
 .npmrc
+bundle.js

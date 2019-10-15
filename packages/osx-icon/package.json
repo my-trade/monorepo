@@ -25,7 +25,7 @@
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-metal-jsx": "^0.1.1",
 		"css-loader": "^1.0.0",
-		"electron": "^2.0.0",
+		"electron": "^2.0.8",
 		"electron-installer-dmg": "^2.0.0",
 		"electron-packager": "^12.1.0",
 		"eslint": "^5.1.0",

@@ -9,7 +9,7 @@
         "cross-fetch": "^3.0.4"
     },
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
+        "registry": "https://npm.pkg.github.com/my-trade"
     },
     "scripts": {
         "build": "webpack --config webpack.web.config.js && webpack --config webpack.server.config.js",
@@ -20,5 +20,5 @@
         "docker-push": "docker push my-trade/webapp",
         "start": "node build/server/bundle.js"
     },
-    "gitHead": "e87214cd0029f7c47cd5ca4657289f2e902ede92"
+    "gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
 }

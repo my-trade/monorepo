@@ -9,10 +9,10 @@
 	"author": "Bruno Basto",
 	"license": "ISC",
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
+		"registry": "https://npm.pkg.github.com/my-trade"
 	},
 	"dependencies": {
 		"mongodb": "^3.1.13"
 	},
-	"gitHead": "e87214cd0029f7c47cd5ca4657289f2e902ede92"
+	"gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
 }

@@ -1,7 +1,7 @@
 {
   "author": "Bruno Basto",
   "name": "@my-trade/webapp",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "index.js",
   "license": "MIT",
   "private": false,
@@ -18,7 +18,7 @@
     "@clayui/modal": "^3.0.0",
     "@clayui/tabs": "^3.0.0",
     "@clayui/tooltip": "^3.0.1",
-    "@my-trade/client": "^1.0.13",
+    "@my-trade/client": "^1.0.14",
     "@pismo/react-currency-input": "^2.0.2",
     "babel-polyfill": "^6.26.0",
     "cors": "^2.8.5",

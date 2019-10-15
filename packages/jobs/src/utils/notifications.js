@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const notify = (email, { comparator, field, symbol, trigger, value }) => {
+const notify = async (email, { comparator, field, symbol, trigger, value }) => {
     console.log(`[Alert] Notifying ${email} because {${field} = ${trigger}} is ${comparator} ${value}.`);
 
     const title = `[MyTrade Alert] ${symbol}`;
@@ -33,17 +33,17 @@ const notify = (email, { comparator, field, symbol, trigger, value }) => {
         }
     });
 
-    fetch('https://api.pushover.net/1/messages.json', {
-        method: 'post',
-        body: {
-            "message": message,
-            "title": title,
-            "token": process.env.PUSHOVER_TOKEN,
-            "user": process.env.PUSHOVER_USER
-        },
+    await fetch('https://api.pushover.net/1/messages.json', {
+        body: JSON.stringify({
+            message,
+            title,
+            token: process.env.PUSHOVER_TOKEN,
+            user: process.env.PUSHOVER_USER
+        }),
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        method: 'POST'
     });
 }
 

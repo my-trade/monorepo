@@ -1,7 +1,7 @@
 {
   "author": "Bruno Basto",
   "name": "@my-trade/jobs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "src/index.js",
   "license": "MIT",
   "private": false,

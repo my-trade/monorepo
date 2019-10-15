@@ -1,6 +1,6 @@
 {
   "name": "@my-trade/api",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@my-trade/db": "^1.0.18",
+    "@my-trade/db": "^1.0.19",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "cross-fetch": "^3.0.1",

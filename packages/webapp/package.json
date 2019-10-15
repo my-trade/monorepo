@@ -52,9 +52,6 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/my-trade"
-  },
   "scripts": {
     "build": "webpack --config webpack.web.config.js && webpack --config webpack.server.config.js",
     "dev": "npm run build && npm start",
@@ -64,5 +61,5 @@
     "docker-push": "docker push my-trade/webapp",
     "start": "node build/server/bundle.js"
   },
-  "gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
+  "gitHead": "c312093ad0ff86a6f906abe2510336e3a5c06083"
 }

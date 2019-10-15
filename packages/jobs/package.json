@@ -11,9 +11,6 @@
     "@my-trade/stocks": "^1.0.20",
     "nodemailer": "^6.3.1"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/my-trade"
-  },
   "scripts": {
     "dev": "npm run build && npm start",
     "docker-build": "docker build -t mytrade/jobs --no-cache .",
@@ -22,5 +19,5 @@
     "docker-push": "docker push mytrade/jobs",
     "start": "node src/index.js"
   },
-  "gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
+  "gitHead": "c312093ad0ff86a6f906abe2510336e3a5c06083"
 }

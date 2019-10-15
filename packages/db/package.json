@@ -8,11 +8,8 @@
 	},
 	"author": "Bruno Basto",
 	"license": "ISC",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/my-trade"
-	},
 	"dependencies": {
 		"mongodb": "^3.1.13"
 	},
-	"gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
+	"gitHead": "c312093ad0ff86a6f906abe2510336e3a5c06083"
 }

@@ -10,9 +10,6 @@
 	"scripts": {
 		"start": "node src/index.js"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/my-trade"
-	},
 	"dependencies": {
 		"cross-fetch": "^3.0.2",
 		"currency.js": "^1.2.1",
@@ -22,5 +19,5 @@
 	},
 	"author": "Bruno Basto",
 	"license": "MIT",
-	"gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
+	"gitHead": "c312093ad0ff86a6f906abe2510336e3a5c06083"
 }

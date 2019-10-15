@@ -8,9 +8,6 @@
 	},
 	"author": "Bruno Basto",
 	"license": "ISC",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/my-trade"
-	},
 	"dependencies": {
 		"cross-fetch": "^3.0.1",
 		"jsonp-promise": "^0.1.2",
@@ -21,5 +18,5 @@
 		"@babel/plugin-proposal-class-properties": "^7.3.4",
 		"@babel/preset-env": "^7.3.4"
 	},
-	"gitHead": "fce1234ce077f1ed10bd7b7a1ae0521ef119224e"
+	"gitHead": "c312093ad0ff86a6f906abe2510336e3a5c06083"
 }

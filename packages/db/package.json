@@ -11,5 +11,5 @@
 	"dependencies": {
 		"mongodb": "^3.1.13"
 	},
-	"gitHead": "c0467e2cf2669a76a98832578e412c5a202e1d79"
+	"gitHead": "d41669c5d20716aaca768fbc3fc39c8df75ff6d9"
 }

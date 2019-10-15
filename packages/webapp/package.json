@@ -61,5 +61,5 @@
     "docker-push": "docker push my-trade/webapp",
     "start": "node build/server/bundle.js"
   },
-  "gitHead": "d41669c5d20716aaca768fbc3fc39c8df75ff6d9"
+  "gitHead": "3e6ee374d7a3b60d889d6dd86798720515e6d98d"
 }

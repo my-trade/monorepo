@@ -1,14 +1,14 @@
 {
   "author": "Bruno Basto",
   "name": "@my-trade/jobs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "src/index.js",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@my-trade/crawlers": "^1.0.7",
-    "@my-trade/db": "^1.0.7",
-    "@my-trade/stocks": "^1.0.7",
+    "@my-trade/crawlers": "^1.0.8",
+    "@my-trade/db": "^1.0.8",
+    "@my-trade/stocks": "^1.0.8",
     "nodemailer": "^6.3.1"
   },
   "scripts": {

@@ -10,10 +10,10 @@
   },
   "scripts": {
     "dev": "npm run build && npm start",
-    "docker-build": "docker build -t my-trade/jobs --no-cache .",
-    "docker-clean": "docker rmi my-trade/jobs",
-    "docker-stop": "docker rm $(docker stop $(docker ps -a -q --filter ancestor=my-trade/jobs --format=\"{{.ID}}\"))",
-    "docker-push": "docker push my-trade/jobs",
+    "docker-build": "docker build -t mytrade/jobs --no-cache .",
+    "docker-clean": "docker rmi mytrade/jobs",
+    "docker-stop": "docker rm $(docker stop $(docker ps -a -q --filter ancestor=mytrade/jobs --format=\"{{.ID}}\"))",
+    "docker-push": "docker push mytrade/jobs",
     "start": "node src/index.js"
   },
   "gitHead": "a434d1f3e853cc18f9473de2f24c783d383fd78b"

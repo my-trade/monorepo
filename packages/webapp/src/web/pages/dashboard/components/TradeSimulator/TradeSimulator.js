@@ -41,7 +41,7 @@ export default () => {
                 />
             </div>
 
-            <div class="container">
+            <div className="container">
                 {draftTrades.map(({ symbol }, index) => (
                     <div className="align-items-center row" key={`${symbol}${index}`}>
                         <div className="col-md-2">

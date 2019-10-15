@@ -7,6 +7,7 @@ WORKDIR /app
 COPY ecosystem.config.js /app
 COPY package.json /app
 COPY src /app/src
+COPY .npmrc /app
 
 RUN npm config set unsafe-perm true
 RUN npm install

@@ -18,5 +18,5 @@
 		"@babel/plugin-proposal-class-properties": "^7.3.4",
 		"@babel/preset-env": "^7.3.4"
 	},
-	"gitHead": "36f7691f05580fe137c124f56c13fd348c958623"
+	"gitHead": "6f4fdef7026639f4306333465949014a16fee37f"
 }

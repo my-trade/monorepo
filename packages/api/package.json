@@ -12,6 +12,9 @@
   },
   "author": "Bruno Basto",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "@my-trade/db": "^1.0.15",
     "body-parser": "^1.18.3",

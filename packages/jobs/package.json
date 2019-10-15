@@ -11,6 +11,9 @@
     "@my-trade/stocks": "^1.0.15",
     "nodemailer": "^6.3.1"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "dev": "npm run build && npm start",
     "docker-build": "docker build -t mytrade/jobs --no-cache .",

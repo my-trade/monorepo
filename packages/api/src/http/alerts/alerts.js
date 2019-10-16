@@ -16,13 +16,13 @@ module.exports = (client, app) => {
 
     app.post('/alerts/add', authMiddleware, async (req, res) => {
         const { email } = req.user;
-        const { comparator, field, symbol } = { ...req.body };
+        const alert = { ...req.body };
         const value = parseFloat(req.body.value);
 
         transaction(
             res,
             async () => {
-                res.send(await AlertsService.add(client, email, { comparator, field, symbol, value }));
+                res.send(await AlertsService.add(client, email, { ...alert, value }));
             }
         );
     });

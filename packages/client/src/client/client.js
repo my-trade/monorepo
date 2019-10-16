@@ -1,7 +1,6 @@
 import { fetch } from 'cross-fetch'
-import jsonp from 'jsonp-promise';
 
-const ENDPOINT = 'http://homepi.ddns.net:3333';
+const ENDPOINT = process.env.CLIENT_URL;
 
 const uri = (path) => `${ENDPOINT}${path}`;
 

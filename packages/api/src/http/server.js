@@ -25,7 +25,7 @@ module.exports = (client) => {
     transactionRoutes(client, app);
     userRoutes(client, app);
 
-    const server = app.listen(port, '0.0.0.0', () => {
+    const server = app.listen(port, () => {
         const host = server.address().address;
 
         console.log(`MyTrade API listening at http://${host}:${port}`);

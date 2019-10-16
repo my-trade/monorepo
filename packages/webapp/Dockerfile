@@ -10,10 +10,12 @@ COPY static /app/static
 COPY webpack.common.config.js /app
 COPY webpack.web.config.js /app
 COPY webpack.server.config.js /app
+COPY .npmrc /app
 
 ENV PORT 8080
 
 RUN npm config set unsafe-perm true
+RUN npm config set @my-trade:registry https://npm.pkg.github.com
 RUN npm install
 RUN npm run build
 RUN npm i -g pm2

@@ -6,6 +6,7 @@ const EarningsService = require('./earnings/EarningsService');
 const NoSuchUserException = require('./exceptions/NoSuchUserException');
 const TransactionService = require('./transaction/TransactionService');
 const UserService = require('./user/UserService');
+const NotificationsService = require('./notifications/NotificationsService');
 
 module.exports = {
 	AlertsService,
@@ -15,5 +16,6 @@ module.exports = {
 	EarningsService,
 	NoSuchUserException,
 	TransactionService,
-	UserService
+	UserService,
+	NotificationsService
 };

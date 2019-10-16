@@ -15,7 +15,6 @@ RUN npm install
 RUN npm i -g pm2
 
 ENV PORT 8080
-
 EXPOSE 8080
 
 CMD ["pm2-runtime",  "ecosystem.config.js"]

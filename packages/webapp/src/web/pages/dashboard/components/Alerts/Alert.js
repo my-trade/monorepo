@@ -5,6 +5,8 @@ import ClayIcon from '@clayui/icon';
 import ClayLoadingIndicator from '@clayui/loading-indicator';
 import MoneyBadge from '../MoneyBadge/MoneyBadge';
 import React, { useState } from 'react';
+import millify from 'millify';
+import ClayBadge from '@clayui/badge';
 
 export default ({alert, onRemove}) => {
     const { comparator, field, symbol, value } = alert;
@@ -33,7 +35,11 @@ export default ({alert, onRemove}) => {
                         {getComparatorLabel(comparator)}
                     </div>
                     <div className="col-md-3 text-center">
-                        <MoneyBadge value={value} />
+                        {field === 'price' ? (
+                            <MoneyBadge value={value} />
+                        ) : (
+                            <ClayBadge displayType="info" label={millify(value)} />
+                        )}
                     </div>
                     <div className="col-md-2 text-right">
                         <ClayButton displayType="secondary" onClick={onClickRemove}>

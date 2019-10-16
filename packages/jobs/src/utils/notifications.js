@@ -1,5 +1,11 @@
 const nodemailer = require('nodemailer');
 const fetch = require('cross-fetch');
+const millify = require('millify').default;
+
+const fieldLabels = {
+    price: 'Price',
+    volume: 'Volume'
+};
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -15,36 +21,44 @@ const transporter = nodemailer.createTransport({
 const notify = async (email, { comparator, field, symbol, trigger, value }) => {
     console.log(`[Alert] Notifying ${email} because {${field} = ${trigger}} is ${comparator} ${value}.`);
 
+    const displayTrigger = field === 'price' ? `R$${trigger}` : millify(trigger);
+    const displayValue = field === 'price' ? `R$${value}` : millify(value);
+
     const title = `[MyTrade Alert] ${symbol}`;
-    const message = `${field} R$${trigger} is ${comparator} R$${value}.`;
+    const message = `${fieldLabels[field]} ${displayTrigger} is ${comparator} ${displayValue}.`;
 
-    const mailOptions = {
-        from: process.env.GMAIL_EMAIL,
-        to: process.env.GMAIL_EMAIL,
-        subject: title,
-        text: message
-    };
+    await Promise.all([
+        new Promise((resolve) => {
+            const mailOptions = {
+                from: process.env.GMAIL_EMAIL,
+                to: process.env.GMAIL_EMAIL,
+                subject: title,
+                text: message
+            };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('[Alert] Notification sent: ' + info.response);
-        }
-    });
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('[Alert] Notification sent: ' + info.response);
+                }
 
-    await fetch('https://api.pushover.net/1/messages.json', {
-        body: JSON.stringify({
-            message,
-            title,
-            token: process.env.PUSHOVER_TOKEN,
-            user: process.env.PUSHOVER_USER
+                resolve();
+            })
         }),
-        headers: {
-            "Content-Type": "application/json"
-        },
-        method: 'POST'
-    });
+        fetch('https://api.pushover.net/1/messages.json', {
+            body: JSON.stringify({
+                message,
+                title,
+                token: process.env.PUSHOVER_TOKEN,
+                user: process.env.PUSHOVER_USER
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: 'POST'
+        })
+    ]);
 }
 
 module.exports = {

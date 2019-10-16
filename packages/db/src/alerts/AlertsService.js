@@ -49,6 +49,13 @@ const list = async (client, email) => {
     return await cursor.toArray();
 }
 
+const get = async (client, filters) => {
+    const db = client.db('mytrade');
+    const collection = db.collection('alerts');
+
+    return await collection.findOne(filters);
+}
+
 const find = async (client, filters) => {
     const db = client.db('mytrade');
     const collection = db.collection('alerts');
@@ -83,6 +90,7 @@ const groupByStock = async (client) => {
 module.exports = {
     add,
     find,
+    get,
     list,
     remove,
     listAll,

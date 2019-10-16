@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import UserAssetList from './components/UserAssetList/UserAssetList';
 import TradeSimulator from './components/TradeSimulator/TradeSimulator';
 import AppContext from '../../AppContext';
-import AlertList from './components/AlertList/AlertList';
+import AlertList from './components/Alerts/AlertList';
 
 export default withRouter(({ history, location: { pathname } }) => {
     const [{ cei: { hasCEI, loading } }] = useContext(AppContext);

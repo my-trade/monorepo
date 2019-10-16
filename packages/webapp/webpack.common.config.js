@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const config = {
   mode: 'development',
@@ -43,6 +44,7 @@ const config = {
     path: path.resolve('static/js')
   },
   plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'CLIENT_URL'])
   ]
 };
 

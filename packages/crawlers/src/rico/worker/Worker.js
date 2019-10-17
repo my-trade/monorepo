@@ -10,7 +10,8 @@ const { TIMEOUT } = require('../../util/constants');
 const configs = {
 	headless: true,
 	timeout: TIMEOUT,
-	args: ['--no-sandbox', '--single-process', '--disable-gpu']
+	args: ['--no-sandbox', '--single-process', '--disable-gpu'],
+	ignoreHTTPSErrors: true
 };
 
 if (process.env.CHROMIUM_EXECUTABLE) {

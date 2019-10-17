@@ -1,7 +1,7 @@
 {
     "author": "Bruno Basto",
     "name": "@my-trade/stocks",
-    "version": "1.0.24",
+    "version": "1.0.25",
     "main": "src/index.js",
     "license": "MIT",
     "private": false,

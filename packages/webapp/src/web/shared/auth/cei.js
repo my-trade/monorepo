@@ -11,7 +11,7 @@ export const getCEI = () => {
         return cei;
     }
 
-	return null;
+	return {};
 }
 
 export const hasCEI = () => {

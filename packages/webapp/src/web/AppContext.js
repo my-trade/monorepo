@@ -1,5 +1,5 @@
 import {createContext} from 'react';
-import { hasCEI, getCEI, saveCEI } from './shared/auth/cei';
+import { hasCEI, getCEI } from './shared/auth/cei';
 
 export const CEI_LOADING = 'CEI_LOADING';
 export const CEI_SAVE = 'CEI_SAVE';

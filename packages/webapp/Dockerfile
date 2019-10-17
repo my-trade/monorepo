@@ -11,7 +11,11 @@ COPY webpack.common.config.js /app
 COPY webpack.web.config.js /app
 COPY webpack.server.config.js /app
 COPY .npmrc /app
+COPY .babelrc /app
 
+ARG CLIENT_URL
+
+ENV CLIENT_URL=$CLIENT_URL
 ENV PORT 8080
 
 RUN npm config set unsafe-perm true

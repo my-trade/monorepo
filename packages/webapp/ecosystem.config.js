@@ -1,6 +1,6 @@
 module.exports = {
 	apps: [{
-		name: "Pebble Finances Web App",
+		name: "MyTrade Web App",
 		script: "npm",
 		args : "start",
 		env: {

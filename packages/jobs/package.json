@@ -21,5 +21,5 @@
     "docker-push": "docker push mytrade/jobs",
     "start": "node src/index.js"
   },
-  "gitHead": "3e6ee374d7a3b60d889d6dd86798720515e6d98d"
+  "gitHead": "7c36f5a2684f9ece4b56db6889098027c1467adf"
 }

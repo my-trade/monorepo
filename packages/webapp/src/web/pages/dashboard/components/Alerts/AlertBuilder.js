@@ -2,6 +2,7 @@ import { ClayDropDownWithItems } from '@clayui/drop-down';
 import { getFieldLabel, getComparatorLabel, getFrequencyLabel } from './utils';
 import { getToken } from '../../../../shared/auth/token';
 import ClayButton from '@clayui/button';
+import ClayLoadingIndicator from '@clayui/loading-indicator';
 import ClayModal, { useModal } from '@clayui/modal';
 import Client from '@my-trade/client';
 import CurrencyInput from 'react-currency-input';
@@ -14,12 +15,24 @@ import 'react-input-range/lib/css/index.css';
 
 const client = new Client();
 
-export default ({ onClose, onSave }) => {
-    const [comparator, setComparator] = useState('equals');
-    const [field, setField] = useState('price');
-    const [frequency, setFrequency] = useState('once');
-    const [symbol, setSymbol] = useState('');
-    const [value, setValue] = useState(0);
+export default ({
+    alert,
+    onClose,
+    onSave
+}) => {
+    alert = alert || {
+        comparator: 'equals',
+        field: 'price',
+        frequency: 'once',
+        symbol: '',
+        value: 0
+    };
+
+    const [comparator, setComparator] = useState(alert.comparator);
+    const [field, setField] = useState(alert.field);
+    const [frequency, setFrequency] = useState(alert.frequency || 'once');
+    const [symbol, setSymbol] = useState(alert.symbol);
+    const [value, setValue] = useState(alert.value);
 
     const reset = () => {
         setComparator('equals');
@@ -35,16 +48,23 @@ export default ({ onClose, onSave }) => {
         }
     });
 
+    const [loading, setLoading] = useState(false);
+
     const handleSave = async () => {
         const token = getToken();
 
+        setLoading(true);
+
         await client.saveAlert(token, {
+            ...alert,
             comparator,
             field,
             frequency,
             symbol,
             value
         });
+
+        setLoading(false);
 
         onSave();
         handleClose();
@@ -165,7 +185,14 @@ export default ({ onClose, onSave }) => {
             </ClayModal.Body>
             <ClayModal.Footer
                 first={<ClayButton displayType="secondary" onClick={handleClose}>{"Cancelar"}</ClayButton>}
-                last={<ClayButton disabled={symbol === ''} onClick={handleSave}>{"Salvar"}</ClayButton>}
+                last={
+                    <ClayButton disabled={symbol === ''} onClick={handleSave}>
+                        {"Salvar"}
+
+                        {loading && (
+                            <ClayLoadingIndicator className="d-inline-block ml-2" small />
+                        )}
+                    </ClayButton>}
             />
         </ClayModal>
     );

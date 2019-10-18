@@ -15,17 +15,36 @@ const validateAlert = (alert) => {
     }
 }
 
-const add = async (client, email, alert) => {
+const save = async (client, email, {_id, ...alert}) => {
     const db = client.db('mytrade');
     const collection = db.collection('alerts');
     const user = await UserService.get(client, { email });
 
     validateAlert(alert);
 
-    return await collection.insertOne({
-        ...alert,
-        userId: user._id
-    });
+    if (_id) {
+        return await collection.updateOne(
+            {
+                _id: ObjectID(_id)
+            },
+            {
+                $set: {
+                    ...alert,
+                    userId: user._id
+                }
+            },
+            {
+                upsert: true
+            }
+        );
+    }
+
+    return await collection.insertOne(
+        {
+            ...alert,
+            userId: user._id
+        }
+    );
 }
 
 const remove = async (client, alertId) => {
@@ -88,11 +107,11 @@ const groupByStock = async (client) => {
 }
 
 module.exports = {
-    add,
     find,
     get,
+    groupByStock,
     list,
-    remove,
     listAll,
-    groupByStock
+    remove,
+    save
 };

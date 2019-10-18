@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import millify from 'millify';
 import ClayBadge from '@clayui/badge';
 
-export default ({alert, onRemove}) => {
+export default ({alert, onEdit, onRemove}) => {
     const { comparator, field, symbol, value } = alert;
 
     const [removeLoading, setRemoveLoading] = useState(false);
@@ -20,6 +20,10 @@ export default ({alert, onRemove}) => {
 
         setRemoveLoading(false);
     };
+
+    const onClickEdit = () => {
+        onEdit(alert);
+    }
 
     return (
         <ClayCard>
@@ -42,6 +46,10 @@ export default ({alert, onRemove}) => {
                         )}
                     </div>
                     <div className="col-md-2 text-right">
+                        <ClayButton className="mr-2" displayType="secondary" onClick={onClickEdit}>
+                            <ClayIcon symbol="pencil" />
+                        </ClayButton>
+
                         <ClayButton displayType="secondary" onClick={onClickRemove}>
                             {removeLoading ? (
                                 <ClayLoadingIndicator small />

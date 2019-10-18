@@ -111,7 +111,7 @@ class Client {
 
 	async saveAlert(token, alert) {
 		const response = await fetch(
-			uri('/alerts/add'),
+			uri('/alerts/save'),
 			{
 				method: 'post',
 				...withBody(alert, token)

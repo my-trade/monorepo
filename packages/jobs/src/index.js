@@ -5,7 +5,7 @@ const alertsJob = require('./alerts/alerts');
 const {wait} = require('./utils/utils');
 
 const MINUTE = 60 * 1000;
-const DAY = 24 * 60 * MINUTE;
+const HOUR = 60 * MINUTE;
 
 (async () => {
 	try {
@@ -18,14 +18,14 @@ const DAY = 24 * 60 * MINUTE;
                 while (true) {
                     await stocksJob(client);
 
-                    await wait(DAY);
+                    await wait(2 * HOUR);
                 }
             }),
             new Promise(async () => {
                 while (true) {
                     await earningsJob(client);
 
-                    await wait(DAY);
+                    await wait(2 * HOUR);
                 }
             }),
             new Promise(async () => {

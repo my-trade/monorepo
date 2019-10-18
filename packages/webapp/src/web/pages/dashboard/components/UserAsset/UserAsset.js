@@ -7,14 +7,15 @@ import DashboardContext, { UPDATE_ASSET_PRICE } from '../../DashboardContext';
 import MoneyBadge from '../MoneyBadge/MoneyBadge';
 import PercentBadge from '../PercentBadge/PercentBadge';
 import { getToken } from '../../../../shared/auth/token';
+import { Link, withRouter } from 'react-router-dom'
 
 const client = new Client();
 
-export default ({
+export default withRouter(({
     averageBuy,
     averageSell,
     amount,
-    earnings,
+    stockEarnings,
     profit,
     price,
     rentability,
@@ -45,7 +46,7 @@ export default ({
         <ClayCard>
             <ClayCard.Body>
                 <ClayCard.Description displayType="title">
-                    {symbol}
+                    <Link to={`/dashboard/minhas-acoes/${symbol}`}>{symbol}</Link>
                 </ClayCard.Description>
 
                 <div className="stock-value">
@@ -98,7 +99,7 @@ export default ({
                             <ClayLabel displayType="secondary">Proventos</ClayLabel>
                         </div>
                         <div className="col-md-4 column-value">
-                            <MoneyBadge value={earnings} />
+                            <MoneyBadge value={stockEarnings} />
                         </div>
                     </div>
                     <div className="row">
@@ -125,4 +126,4 @@ export default ({
             </ClayCard.Body>
         </ClayCard>
     )
-};
+});

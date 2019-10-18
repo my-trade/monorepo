@@ -27,7 +27,7 @@ export const reducer = (state = initialState, action) => {
             let totalSold = 0;
 
             const calculatedAssets = assets.map(stock => {
-                const earnings = stock.earnings.reduce((total, { value }) => {
+                const stockEarnings = stock.earnings.reduce((total, { value }) => {
                     return total + value;
                 }, 0);
                 let investedAmount = 0;
@@ -49,23 +49,23 @@ export const reducer = (state = initialState, action) => {
 
                     return summ;
                 }, 0);
-                const profit = (stock.price * stock.amount + earnings + soldAmount) - investedAmount;
+                const profit = (stock.price * stock.amount + stockEarnings + soldAmount) - investedAmount;
 
                 totalInvested += investedAmount;
                 totalMarketValue += stock.amount * stock.price;
-                totalEarnings += earnings;
+                totalEarnings += stockEarnings;
                 totalSold += soldAmount;
 
                 return {
                     ...stock,
                     averageBuy: investedAmount / buyCount,
                     averageSell: sellCount > 0 ? soldAmount / sellCount : 0,
-                    earnings,
-                    profit,
-                    total,
                     investedAmount,
+                    profit,
+                    rentability: profit / investedAmount,
                     soldAmount,
-                    rentability: profit / investedAmount
+                    stockEarnings,
+                    total
                 }
             });
 

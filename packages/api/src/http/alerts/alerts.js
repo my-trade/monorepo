@@ -14,7 +14,7 @@ module.exports = (client, app) => {
         );
     });
 
-    app.post('/alerts/add', authMiddleware, async (req, res) => {
+    app.post('/alerts/save', authMiddleware, async (req, res) => {
         const { email } = req.user;
         const alert = { ...req.body };
         const value = parseFloat(req.body.value);
@@ -22,7 +22,7 @@ module.exports = (client, app) => {
         transaction(
             res,
             async () => {
-                res.send(await AlertsService.add(client, email, { ...alert, value }));
+                res.send(await AlertsService.save(client, email, { ...alert, value }));
             }
         );
     });

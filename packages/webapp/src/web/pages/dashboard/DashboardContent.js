@@ -2,6 +2,7 @@ import { Redirect, Route, withRouter } from 'react-router-dom'
 import ClayTabs from '@clayui/tabs';
 import React, { useContext } from 'react';
 import UserAssetList from './components/UserAssetList/UserAssetList';
+import UserStockDetails from './components/UserStockDetails/UserStockDetails';
 import TradeSimulator from './components/TradeSimulator/TradeSimulator';
 import AppContext from '../../AppContext';
 import AlertList from './components/Alerts/AlertList';
@@ -34,8 +35,9 @@ export default withRouter(({ history, location: { pathname } }) => {
             <ClayTabs.Content fade={false}>
                 <ClayTabs.TabPane>
                     <Route path="/dashboard/" exact component={UserAssetList} />
-                    <Route path="/dashboard/alertas/" component={AlertList} />
-                    <Route path="/dashboard/minhas-acoes/" component={UserAssetList} />
+                    <Route path="/dashboard/alertas/" exact component={AlertList} />
+                    <Route path="/dashboard/minhas-acoes/" exact component={UserAssetList} />
+                    <Route path="/dashboard/minhas-acoes/:symbol" component={UserStockDetails} />
                     <Route path="/dashboard/trade-simulado/" component={TradeSimulator} />
 
                     {!hasCEI && (

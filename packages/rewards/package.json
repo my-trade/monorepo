@@ -15,7 +15,7 @@
     "@clayui/modal": "^3.0.0",
     "@clayui/tabs": "^3.0.0",
     "@clayui/tooltip": "^3.0.1",
-    "react": "^16.10.2",
+    "react": "^16.11.0",
     "react-currency-input": "^1.3.6",
     "react-dom": "^16.10.2"
   },

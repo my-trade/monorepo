@@ -25,27 +25,29 @@ const getUOLAssetBySymbol = async (symbolSymbol) => {
 }
 
 const getStockPrice = async (symbol) => {
-    const alphaResponse = await fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}.SAO&apikey=RVKDVR8QCCBW1MWX`);
-    const alphaResult = await alphaResponse.json();
-    
-    if (alphaResult['Global Quote']) {
-        return new Number(alphaResult['Global Quote']['05. price']);
-    }
+    const {price} = await getStockPriceAndChange(symbol);
 
+    return price;
+}
+
+const getStockPriceAndChange = async (symbol) => {
     const asset = await getUOLAssetBySymbol(symbol);
 
     if (!asset) {
-        return 0;
+        return {change: 0, price: 0};
     }
 
-    const uolResponse = await fetch(`http://cotacoes.economia.uol.com.br/ws/asset/${asset.id}/intraday?fields=date,price`);
+    const uolResponse = await fetch(`http://cotacoes.economia.uol.com.br/ws/asset/${asset.id}/intraday?fields=varpct,price`);
     const uolResult = await uolResponse.json();
 
     if (uolResult.data && uolResult.data.length > 0) {
-        return uolResult.data[0].price;
+        return {
+            change: uolResult.data[0].varpct,
+            price: uolResult.data[0].price
+        };
     }
   
-    return 0;
+    return {change: 0, price: 0};
 }
 
 const getStockVolume = async (symbol) => {
@@ -68,6 +70,7 @@ const getStockVolume = async (symbol) => {
 module.exports = {
     getAllSymbols,
     getStockPrice,
+    getStockPriceAndChange,
     getStockVolume,
     getUOLAssetBySymbol
 }

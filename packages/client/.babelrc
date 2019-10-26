@@ -1,5 +1,7 @@
 {
     "plugins": [
+      "transform-inline-environment-variables",
+      "transform-node-env-inline",
       "@babel/plugin-proposal-class-properties"
     ],
     "presets": [

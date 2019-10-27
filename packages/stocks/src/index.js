@@ -1,15 +1,17 @@
 const {
     getAllSymbols,
+    getStockInterday,
     getStockPrice,
+    getStockPriceAndChange,
     getStockVolume,
-    getUOLAssetBySymbol,
-    getStockPriceAndChange
+    getUOLAssetBySymbol
 } = require('./symbols');
 
 module.exports = {
     getAllSymbols,
+    getStockInterday,
     getStockPrice,
+    getStockPriceAndChange,
     getStockVolume,
-    getUOLAssetBySymbol,
-    getStockPriceAndChange
+    getUOLAssetBySymbol
 };

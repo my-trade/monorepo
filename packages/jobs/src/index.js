@@ -13,21 +13,39 @@ const HOUR = 60 * MINUTE;
         
         console.log('[Jobs] Connected');
 
-		await Promise.all([
-            new Promise(async () => {
-                while (true) {
-                    await stocksJob(client);
+        const jobs = [];
 
-                    await wait(2 * HOUR);
-                }
-            }),
-            new Promise(async () => {
-                while (true) {
-                    await earningsJob(client);
+        if (process.env.MYTRADE_JOB_STOCKS) {
+            console.log('[Jobs] Starting stocks job');
 
-                    await wait(2 * HOUR);
-                }
-            }),
+            jobs.push(
+                new Promise(async () => {
+                    while (true) {
+                        await stocksJob(client);
+    
+                        await wait(2 * HOUR);
+                    }
+                })
+            );
+        }
+
+        if (process.env.MYTRADE_JOB_EARNINGS) {
+            console.log('[Jobs] Starting earnings job');
+
+            jobs.push(
+                new Promise(async () => {
+                    while (true) {
+                        await earningsJob(client);
+    
+                        await wait(2 * HOUR);
+                    }
+                })
+            );
+        }
+
+        if (process.env.MYTRADE_JOB_ALERTS) {
+            console.log('[Jobs] Starting alerts job');
+
             new Promise(async () => {
                 while (true) {
                     await alertsJob(client);
@@ -35,7 +53,9 @@ const HOUR = 60 * MINUTE;
                     await wait(15 * MINUTE);
                 }
             })
-        ])
+        }
+
+		await Promise.all(jobs);
 	}
 	catch (error) {
 		console.error(error);

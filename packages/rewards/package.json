@@ -20,7 +20,7 @@
     "react-dom": "^16.10.2"
   },
   "devDependencies": {
-    "electron": "6.0.12",
+    "electron": "9.1.0",
     "electron-builder": "^21.2.0",
     "react-scripts": "3.2.0"
   },
